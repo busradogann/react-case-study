@@ -1,0 +1,39 @@
+@import '~antd/dist/antd.less';
+
+@body-background: #f5f5fa;
+
+@layout-header-background: transparent;
+
+@primary-color: #155ed4;
+@btn-border-radius-base: 12px;
+
+@menu-item-color: #606066;
+@menu-highlight-color: #17171a;
+@menu-bg: transparent;
+
+@badge-height: 16px;
+@badge-height-sm: 12px;
+@badge-font-size: 10px;
+@badge-font-size-sm: 10px;
+@badge-font-weight: 600;
+@badge-status-size: 6px;
+@badge-text-color: #fff;
+@badge-color: #f20028;
+
+
+.site-layout-content {
+    min-height: 280px;
+    padding: 24px;
+    background: #fff;
+}
+
+.ant-menu-root > .ant-menu-item, .ant-menu-submenu {
+    &:hover {
+        background-color: #E4E8F6;
+        border-radius: 10px;
+    }
+
+    &::after {
+        content: none !important;
+    }
+}
