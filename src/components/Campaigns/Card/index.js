@@ -51,7 +51,7 @@ const Card = (props) => {
     return (
       <CardContainer>
         <div className={"image"}>
-            <img src={image} />
+            <img src={image} alt={""} />
         </div>
         <div className={"details"}>
           <h3 className={"title"}>{title}</h3>

@@ -1,46 +1,61 @@
-import { Avatar, Badge, Carousel, Col, Menu as AntdMenu, Row } from 'antd';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import './App.less';
 
-import styled from 'styled-components';
 
 import { ReactComponent as ArrowLeft } from './assets/images/slider-arrow-left.svg';
 import { ReactComponent as ArrowRight } from './assets/images/slider-arrow-right.svg';
 
 import Header from './components/Header';
 import Campaigns from './components/Campaigns';
+import Transactions from './components/Transactions';
+import { Section } from './components/Layout';
 
-const Section = styled.section`
-  padding: 0 40px;
-`
 
-const SectionTitle = styled.h3`
-  color: #17171a;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 24px 40px;
-`
+const CampaignsSection = (props) => (
+  <Section
+    title={"SİZE ÖZEL KAMPANYALAR"}
+    titleRight={
+      <>
+        <a href onClick={() => props.sliderRef.current.prev()}>
+          <ArrowLeft />
+        </a>
+        <a href onClick={() => props.sliderRef.current.next()}>
+          <ArrowRight />
+        </a>
+      </>
+    }
+  >
+    <Campaigns sliderRef={props.sliderRef} />
+  </Section>
+);
+
+
+const TransactionsSection = (props) => (
+  <Section
+    title={"HESAP HAREKETLERİ"}
+    titleRight={
+      <>
+        <a href>
+          Harcama Analizi <ArrowRight />
+        </a>
+      </>
+    }
+  >
+    <Transactions />
+  </Section>
+);
+
 
 const Dashboard = () => {
   const sliderRef = useRef();
 
-  return (<>
-    <Header />
-    <Section>
-      <Row>
-        <Col span={22}><SectionTitle>SİZE ÖZEL KAMPANYALAR</SectionTitle></Col>
-        <Col>
-            <a onClick={() => sliderRef.current.prev()}>
-            <ArrowLeft />
-          </a>
-          <a onClick={() => sliderRef.current.next()}>
-          <ArrowRight />
-          </a>
-        </Col>
-      </Row>
-      <Campaigns sliderRef={sliderRef} />
-    </Section>
-  </>);
+  return (
+    <>
+      <Header />
+      <CampaignsSection sliderRef={sliderRef} />
+      <TransactionsSection />
+    </>
+  );
 };
 
 

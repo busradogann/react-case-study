@@ -1,4 +1,4 @@
-import { Carousel, Row } from 'antd';
+import { Carousel } from 'antd';
 
 import styled from 'styled-components';
 
@@ -61,7 +61,6 @@ const CampaignsContainer = styled.div`
 
 function Campaigns(props) {
     return (
-
         <CampaignsContainer>
             <Carousel ref={props.sliderRef} {...defaultSettings}>
                 <Card image={CampaignTurkcell} title={"Lorem ipsum dolor"} description={"Lorem ipsum dolor sit amet"} url={"#"}></Card>
