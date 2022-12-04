@@ -4,7 +4,7 @@ import { Avatar, Badge } from 'antd';
 
 const ProfileContainer = styled.div`
   display: grid;
-  grid-template-columns: 25% auto;
+  grid-template-columns: 35% auto;
   align-items: center;
 
   & {

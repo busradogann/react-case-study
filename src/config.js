@@ -1,0 +1,1 @@
+export const API_HOST = 'https://638499244ce192ac605cda1d.mockapi.io/api/v1'

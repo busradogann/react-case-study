@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import useFetch from 'use-http';
 
 import styled from 'styled-components';
 
 import { Menu as AntdMenu } from 'antd';
+
+import { API_HOST } from "../../../config";
 
 import { ReactComponent as AccountsIcon } from "../../../assets/images/menu-accounts.svg";
 import { ReactComponent as CampaignsIcon } from "../../../assets/images/menu-campaigns.svg";
@@ -40,51 +43,6 @@ const MenuContainer = styled.div`
   }
 `
 
-const defaultMenu = [
-    {
-     "label": "Hesaplar",
-     "icon": "accounts",
-     "children": [
-       {"key": "1-1", "label": "Menu 1"},
-       {"key": "1-2", "label": "Menu 2"},
-       {"key": "1-3", "label": "Menu 3"},
-       {"key": "1-4", "label": "Menu 4"},
-       {"key": "1-5", "label": "Menu 5"},
-       {"key": "1-6", "label": "Menu 6"}
-     ],
-     "key": "1",
-     "disabled": false
-    },
-    {
-     "label": "Kartlar",
-     "icon": "cards",
-     "children": [],
-     "key": "2",
-     "disabled": false
-    },
-    {
-     "label": "İşlemler",
-     "icon": "operations",
-     "children": [],
-     "key": "3",
-     "disabled": false
-    },
-    {
-     "label": "Kampanyalar",
-     "icon": "campaigns",
-     "children": [],
-     "key": "4",
-     "disabled": false
-    },
-    {
-     "label": "disabled",
-     "icon": "disabled",
-     "children": [],
-     "key": "5",
-     "disabled": true
-    }
-];
-
 const filterMenu = (data) => (
     data.filter(item => (!item.disabled))
         .map(item => ({...item, icon: typeIcons[item.icon]}))
@@ -92,15 +50,17 @@ const filterMenu = (data) => (
 
 function Menu() {
     const [items, setItems] = useState([]);
-    
-    // TODO: useEffect ve fetch kullanarak menu item'lerinin çekilmesi gerekiyor.
-  
-    useEffect(() => {
-        const data = filterMenu(defaultMenu);
+    const { get, response } = useFetch(API_HOST)
 
-        setItems(data);
-    }, []);
-  
+    useEffect(() => { loadMenu() }, [])
+
+    async function loadMenu() {
+        const menu = await get('/navigation');
+        if (response.ok) {
+            setItems(filterMenu(menu))
+        }
+    }
+
     return (
         <MenuContainer>
             <AntdMenu
