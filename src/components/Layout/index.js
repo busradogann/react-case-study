@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const SectionContainer = styled.section`
   padding: 0 40px;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 `
 
 const SectionHeader = styled.div`

@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
 
+import styled from 'styled-components';
+
 import { ReactComponent as ArrowLeft } from '../../assets/images/slider-arrow-left.svg';
 import { ReactComponent as ArrowRight } from '../../assets/images/slider-arrow-right.svg';
 import SocialBackground from '../../assets/images/social-section-bg.png'
@@ -11,57 +13,62 @@ import { Section, PureSection } from '../../components/Layout';
 
 
 const CampaignsSection = (props) => (
-    <Section
-      title={"SİZE ÖZEL KAMPANYALAR"}
-      titleRight={
-        <>
-          <a href onClick={() => props.sliderRef.current.prev()}>
-            <ArrowLeft />
-          </a>
-          <a href onClick={() => props.sliderRef.current.next()}>
-            <ArrowRight />
-          </a>
-        </>
-      }
-    >
-      <Campaigns sliderRef={props.sliderRef} />
-    </Section>
-  );
+  <Section
+    title={"SİZE ÖZEL KAMPANYALAR"}
+    titleRight={
+      <>
+        <a onClick={() => props.sliderRef.current.prev()}>
+          <ArrowLeft />
+        </a>
+        <a onClick={() => props.sliderRef.current.next()}>
+          <ArrowRight />
+        </a>
+      </>
+    }
+  >
+    <Campaigns sliderRef={props.sliderRef} />
+  </Section>
+);
 
 const TransactionsSection = () => (
-<Section
+  <Section
     title={"HESAP HAREKETLERİ"}
     titleRight={
-    <>
-        <a href>
-        Harcama Analizi <ArrowRight />
-        </a>
-    </>
+      <>
+          <a href={'#'}>
+          Harcama Analizi <ArrowRight />
+          </a>
+      </>
     }
->
+  >
     <Transactions />
-</Section>
+  </Section>
 );
 
 const SocialSection = () => (
-    <PureSection
+  <PureSection
     background={SocialBackground}
-    >
+  >
     <h3>Sosyal hesaplar sizlerle!</h3>
     <p>Lorem ipsum dolor sit amet.</p>
-    </PureSection>
+  </PureSection>
 )
+
+const Space = styled.div`
+  height: 60px;
+`
 
 const Dashboard = () => {
     const sliderRef = useRef();
 
     return (
-        <>
+      <>
         <Header />
         <CampaignsSection sliderRef={sliderRef} />
         <TransactionsSection />
         <SocialSection />
-        </>
+        <Space />
+      </>
     );
 };
 

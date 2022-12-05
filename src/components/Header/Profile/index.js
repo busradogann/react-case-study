@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 import { Avatar, Badge } from 'antd';
 
+import { useLocalStorage } from '../../../hooks';
+
+
 const ProfileContainer = styled.div`
   display: grid;
   grid-template-columns: 35% auto;
@@ -37,6 +40,9 @@ const ProfileContainer = styled.div`
 `;
 
 function Profile() {
+  const [username, setUserName] = useLocalStorage("username");
+  const [accountType, setAccountType] = useLocalStorage("accountType");
+
   return (
     <ProfileContainer>
       <div className={"avatar"}>
@@ -45,8 +51,8 @@ function Profile() {
         </Badge>
       </div>
       <div className={"details"}>
-        <span className={"name"}>Sercan Cihangir</span>
-        <span className={"type"}>Standart Hesap</span>
+        <span className={"name"}>{username}</span>
+        <span className={"type"}>{accountType}</span>
       </div>
     </ProfileContainer>
   );

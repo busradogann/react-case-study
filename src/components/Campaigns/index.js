@@ -45,6 +45,11 @@ const defaultSettings = {
 
 
 const CampaignsContainer = styled.div`
+  .slick-track {
+    top: 22px;
+    height: 185px;
+  }
+
   .slick-dots {
     bottom: -24px;
   }

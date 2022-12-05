@@ -19,7 +19,7 @@ const CardContainer = styled.div`
 
         img {
             position: absolute;
-            width: 75%;
+            width: 65%;
             bottom: 0;
         }
     }

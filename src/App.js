@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.less';
 
-import Dashboard from './pages/Dashboard';
-import Login from './pages/Login';
+import Router from './routes/index';
+
 
 const App = () => (
   <div className="App">
-    <Login />
+    <Router />
   </div>
 );
 

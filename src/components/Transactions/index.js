@@ -50,6 +50,22 @@ const data = [
         amount: "2.00 gr",
         createdAt: randomDate()
     },
+    {
+        id: 4,
+        type: "money",
+        title: "Gelen Transfer",
+        account: "Dolar Hesabım (Erman Karakaya)",
+        amount: "$140.00",
+        createdAt: randomDate()
+    },
+    {
+        id: 5,
+        type: "food",
+        title: "Burger's Lab",
+        account: "Aile Hesabım (Yasemin Pınar)",
+        amount: "₺-200",
+        createdAt: randomDate()
+    }
 ]
 
 const TransactionsContainer = styled.div`
@@ -121,7 +137,7 @@ function Transactions(props) {
         <List
           dataSource={data}
           pagination={{
-            pageSize: 2,
+            pageSize: 3,
             total: data.length,
             itemRender: (_, type, originalElement) => ((type === "prev" || type === "next") ? null : originalElement)
           }}

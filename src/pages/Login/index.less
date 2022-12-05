@@ -1,0 +1,51 @@
+.ant-form-item-control-input-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-border[aria-invalid="true"] {
+  border: solid 2px #f20028;
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: transparent;
+  border: none;
+}
+
+.ant-select-selection-search:focus-visible {
+  outline: none;
+}
+
+.ant-select-dropdown {
+  min-width: 330px!important;
+  width: 330px!important;
+  margin: 8px 0 0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px 0 rgba(20, 20, 51, 0.15);
+  background-color: #fff;
+
+  input {
+    border-radius: 12px;
+    background-color: #f5f5fa;
+    height: 56px;
+    border: none;
+    width: 100%;
+    text-indent: 5%;
+  }
+
+  .ant-select-item-option-content {
+    font-size: 14px;
+    color: #606066;
+  }
+
+  .ant-select-item-option-content::after {
+    content: '';
+    width: 100%;
+    border-bottom: solid 1px #f5f5fa;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1;
+  }
+}

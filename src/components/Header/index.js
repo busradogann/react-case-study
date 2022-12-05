@@ -8,7 +8,7 @@ import Profile from './Profile';
 
 
 const HeaderContainer = styled.header`
-    margin: 24px 40px 70px;
+    margin: 24px 40px 30px;
 `
 
 const Header = () => (
