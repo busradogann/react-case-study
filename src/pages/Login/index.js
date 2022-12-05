@@ -150,7 +150,6 @@ const Feature = styled.div`
 `
 
 const FormTitle = styled.h2`
-  font-family: SofiaPro;
   font-size: 32px;
   font-weight: 600;
   letter-spacing: 0.56px;
