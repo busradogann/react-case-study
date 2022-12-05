@@ -161,7 +161,7 @@ const FormDescription = styled.p`
   color: #606066;
 `
 
-const FormInput = styled.input` 
+const FormInput = styled(Input)` 
   border-radius: 12px;
   background-color: #f5f5fa;
   height: 56px;

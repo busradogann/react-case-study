@@ -64,6 +64,4 @@ export const PureSection = styled(SectionContainer)`
     font-size: 16px;
     color: #606066;
   }
-
-  a {}
 `
